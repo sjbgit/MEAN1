@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+ <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+</head>
+<script>
+  var app = angular.module('app', [])
+  app.controller('PostsCtrl', function ($scope) {
+    $scope.info = 'test info';
+    $scope.add = function() { 
+	$scope.posts.push({
+        username: 'new',
+        body: 'newly added'
+      });
+	//alert('xxx'); 
+
+	};
+    $scope.posts = [
+      {
+        username: 'dickeyxxx---------------------',
+        body: 'Node rules!'
+      },
+      {
+        username: 'jeffdickey',
+        body: 'trying out angular.js...'
+      }
+    ]
+  })
+</script>
+<body ng-app='app'>
+  <div class='container' ng-controller="PostsCtrl">
+    <h1>Recent Posts {{info}}</h1>
+    <ul class='list-group' ng-repeat="post in posts">
+      <li class='list-group-item'>
+        <strong>{{post.username}}</strong>
+        <span>{{post.body}}</span>
+      </li>
+      
+    </ul>
+     <div ng-click="add()">Add</div>
+  </div>
+  
+</body>
+</html>
