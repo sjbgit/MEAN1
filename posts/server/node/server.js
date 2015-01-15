@@ -25,7 +25,7 @@ var Post = mongoose.model('Post', {
 
 
 app.get('/', function (req, res) {
-  res.sendfile('./posts.html');
+  res.sendfile('./posts1.html');
 })
 
 app.get('/api/posts', function (req, res, next) {
