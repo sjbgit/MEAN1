@@ -2,6 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
  
 var app = express();
+
+var router = express.Router();
+
+var dirName = __dirname + '\\app\\controllers';
+console.log('test ' + dirName);
+
+router.use(express.static(dirName));
+
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
