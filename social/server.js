@@ -3,8 +3,13 @@ var bodyParser = require('body-parser')
 var Post = require('./models/post')
 
 var app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
+app.use(require('./controllers/api/posts'));
+
+//require('./controllers/api/posts')(app);
+
+/*
 app.get('/api/posts', function (req, res, next) {
   Post.find()
   .sort('-date')
@@ -24,7 +29,7 @@ app.post('/api/posts', function (req, res, next) {
     res.json(201, post)
   })
 })
-
+*/
 app.get('/', function (req, res) {
   res.sendfile('layouts/posts.html')
 })
